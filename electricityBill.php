@@ -38,6 +38,7 @@
     </body>
 </html>
 <?php
+echo"<center>";
 if(isset($_POST['submit']))
 {
     $meterNo=$_POST['meterNo'];
@@ -80,7 +81,7 @@ if(isset($_POST['submit']))
             $ec=5;
             $pay=(($noUnit*4)+$ec);
         }
-        echo "Meter Number is ".$meterNo;
+        echo "Meter Number  : ".$meterNo;
         echo "<br>";
         echo "Number of unit used : ".$noUnit;
         echo "<br>";
@@ -125,7 +126,7 @@ if(isset($_POST['submit']))
             $ec=20;
             $pay=(($noUnit*6)+$ec);
         }
-        echo "Meter Number is ".$meterNo;
+        echo "Meter Number  : ".$meterNo;
         echo "<br>";
         echo "Number of unit used :".$noUnit;
         echo "<br>";
@@ -170,7 +171,7 @@ if(isset($_POST['submit']))
             $ec=30;
             $pay=(($noUnit*8)+$ec);
         }
-        echo "Meter Number is ".$meterNo;
+        echo "Meter Number  : ".$meterNo;
         echo "<br>";
         echo "Number of unit used : ".$noUnit;
         echo "<br>";
@@ -179,4 +180,5 @@ if(isset($_POST['submit']))
         echo "Total amount to be paid: ".$pay;
     }
 }
+echo"</center>";
 ?>
