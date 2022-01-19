@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title></title>
+        <title>Cricket Players</title>
     </head>
     <body>
         <?php
