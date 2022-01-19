@@ -1,0 +1,10 @@
+<?php
+    $studentList=array("Arun","Kannan","Sivamurugan","Don","Arjun","Binoy","Joyal");
+    print_r($studentList);
+    echo"<br>";
+    asort($studentList);
+    print_r($studentList);
+    echo"<br>";
+    arsort($studentList);
+    print_r($studentList);
+?>
