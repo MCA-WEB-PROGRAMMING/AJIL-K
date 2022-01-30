@@ -63,9 +63,7 @@
         $cname=preg_match('/^[A-Za-z]+$/',$name);
         $p=preg_match('/(6|7|8|9)\d{9}/',$phone);
         $e=preg_match('/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/',$email);
-        $u=preg_match('@[A_Z]@',$psw);
-        $l=preg_match('@[a-z]@',$psw);
-        $n=preg_match('@[0-9]@',$psw);
+        $cp=preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/',$psw);
         if($name=="" || $cname==0)
         {
             echo"<script>alert ('Name must contain only alphabets!');</script>";
@@ -96,7 +94,7 @@
             echo"<script>alert ('Password must contain minimum 8 characters!');</script>";
             $flag=0;
         }
-        else if($u==0 || $l==0 || $n==0)
+        else if($cp==0)
         {
             echo"<script>alert ('Password must contain atleast 1 uppercase character, 1 lowercase character and 1 number!');</script>";
             $flag=0;
@@ -107,7 +105,7 @@
             if ($conn->query($sql) === TRUE)
             {
                 echo"<script>alert ('Details added successfully!');</script>";
-                $sqlreturn = "SELECT * FROM `registration` order by id desc limit 1";
+                $sqlreturn = "SELECT * FROM `registration` WHERE email='$email' and psw='$psw'";
                 $result = $conn->query($sqlreturn);
     
                 if ($result->num_rows > 0)
@@ -123,6 +121,10 @@
                         echo"<tr><td>Password</td><td>" . $row["psw"]."</td></tr>";
                         echo"</table>";
                     }
+                }
+                else
+                {
+                    echo "Error: " . $sqlreturn . "<br>" . mysqli_error($conn);
                 }
             }
             else
