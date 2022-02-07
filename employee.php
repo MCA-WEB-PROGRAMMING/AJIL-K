@@ -102,7 +102,10 @@
     }
     else
     {
-        echo "Error: " . $sqlreturn . "<br>" . mysqli_error($conn);
+        echo"<table align='center' cellpadding='8' width='50%'>";
+        echo"<tr><th colspan='2'><center>Employee List whose salary  greater than 35000</center></th></tr>";
+        echo"<tr><td colspan='2'>No Data Found</td></tr>";
+        echo"</table>";
     }
     mysqli_close($conn);
 ?>
